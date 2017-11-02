@@ -1,9 +1,9 @@
 # tmplanner
-This repository contains a real-time capable trajectory planning framework for terrain monitoring applications using unmanned aerial vehicles (UAVs). The framework is suitable for monitoring either discrete or continuous target variances.
+This repository contains a real-time capable informative motion planning framework for terrain monitoring applications using unmanned aerial vehicles (UAVs). The framework is suitable for monitoring either discrete or continuous target variances.
 
 The planner operates in a finite-horizon fashion, alternating between replanning and plan execution, while taking new sensor data into account. The replanning stage consists of two steps: (1) coarse 3D grid search in the UAV configuration space and (2) optimization of this trajectory for maximized information/exploratory gain using an evolutionary scheme.
 
-This README gives a short overview of the repository contents. For more information, please refer to the [wiki](https://github.com/ethz-asl/flourish_ipp_ros/wiki).
+This README gives a short overview of the repository contents. For more information, please refer to the [wiki](https://github.com/ethz-asl/tmplanner/wiki).
 
 **Author**: Marija Popović  
 **Maintainer**: Marija Popović, mpopovic@ethz.ch  
@@ -15,7 +15,7 @@ This README gives a short overview of the repository contents. For more informat
 
 More information about our mapping and planning methods can be found in the following papers. Please cite them if you use our software in a scientific publication.
 
-For our discrete variable planner:
+* For our discrete variable planner:
 
 Marija Popović, Gregory Hitz, Juan Nieto, Inkyu Sa, Roland Siegwart, and Enric Galceran “**Online Informative Path Planning for Active Classification Using UAVs**”. In *IEEE Int. Conf. on Robotics and Automation* (ICRA), Singapore, May 2017.
 ```
@@ -29,7 +29,7 @@ Marija Popović, Gregory Hitz, Juan Nieto, Inkyu Sa, Roland Siegwart, and Enric 
 }
 ```
 
-For our continuous variable planner:
+* For our continuous variable planner:
 
 Marija Popović, Teresa Vidal-Calleja, Gregory Hitz, Inkyu Sa, Roland Siegwart, and Juan Nieto “**Multiresolution Mapping and Informative Path Planning for UAV-based Terrain Monitoring**”. In *IEEE/RSJ Int. Conf. on Intelligent Robots and Systems* (IROS), Vancouver, September 2017.
 ```
@@ -96,7 +96,7 @@ Simulation demos for both packages are provided, as described below.
 
 
 ## Demo Instructions
-In this repository, we provide illustrative demos of both discrete (binary) and continuous target variable terrain monitoring in the Gazebo-based [RotorS](https://github.com/ethz-asl/rotors_simulator/wiki) environment. The simulation set-ups includes a rotorcraft-type UAV equipped with a downward-facing camera, as per the algorithms' problem formulation.
+In this repository, we provide illustrative demos of both discrete (binary) and continuous target variable terrain monitoring in the Gazebo-based [RotorS](https://github.com/ethz-asl/rotors_simulator/wiki) environment. The simulation set-up includes a rotorcraft-type UAV equipped with a downward-facing camera, as per the algorithms' problem formulation.
 
 The following steps outline the terminal commands to run an example for mapping a continuous variable. The same procedure can be applied to map discrete variables, by replacing for the ``tmplanner_discrete`` package name in the commands.
 
@@ -119,6 +119,7 @@ The following steps outline the terminal commands to run an example for mapping 
   ```
  $ rosservice call /start_planning
  ```
+You should now be able to see the UAV moving in the Gazebo window as the planning routine is executed.
  
 ## Acknowledgement
 
