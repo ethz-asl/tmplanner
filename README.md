@@ -9,7 +9,7 @@ This README gives a short overview of the repository contents. For more informat
 **Maintainer**: Marija Popović, mpopovic@ethz.ch  
 **Affiliation**: Autonomous Systems Lab., ETH Zurich
 
-![]("https://i.imgur.com/AE2SzrI.jpg")
+<p align="center"><img src="https://preview.ibb.co/n7Q7OG/vlcsnap_2017_11_02_21h35m04s545.png" width="400" /></p>
 
 ## Bibliography
 
@@ -112,7 +112,7 @@ The following steps outline the terminal commands to run an example for mapping 
  $ roslaunch tmplanner_continuous tmplanner.launch
  ```
  
-   > **Note**: The appropriate parameters must be loaded in the launch file.
+   > **Note**: The appropriate [parameters](https://github.com/ethz-asl/tmplanner/wiki/Parameters) must be loaded in the launch file.
  
  3. Initialize the planning routine via the rosservice:
  
