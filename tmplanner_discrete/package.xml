@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>tmplanner_discrete</name>
+  <version>2.0.0</version>
+  <description>Informative motion planner for monitoring discrete variables</description>
+
+  <author>Marija Popovic</author>
+
+  <maintainer email="mpopovic@ethz.ch">Marija Popovic</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>catkin_simple</buildtool_depend>
+
+   <!-- Dependencies. -->
+  <depend>roslib</depend>
+  <depend>roscpp</depend>
+  <depend>tf</depend>
+  <depend>sensor_msgs</depend>
+  <depend>cv_bridge</depend> 
+  <depend>geometry_msgs</depend>
+  <depend>cmaes_catkin</depend>
+  <depend>glog_catkin</depend>
+  <depend>eigen_checks</depend>
+  <depend>cmake_modules</depend>
+  <depend>std_msgs</depend>
+  <depend>mav_trajectory_generation</depend>
+  <depend>mav_trajectory_generation_ros</depend>
+  <depend>mav_msgs</depend>
+  <depend>minkindr</depend>
+  <depend>minkindr_conversions</depend>
+  <depend>apriltags_ros</depend>
+  <depend>tmplanner_tools</depend>
+      
+</package>

@@ -1,0 +1,27 @@
+<launch>
+
+  <arg name="mav_name" default="firefly"/>
+  <arg name="camera_serial" default="9130640" />
+  <arg name="camera_frame" default="$(arg mav_name)/camera_link" />
+  <arg name="enable_logging" default="true"/>
+  <arg name="log_file" default="$(arg mav_name)"/>
+
+  <group ns="$(arg mav_name)">
+
+    <!-- Load parameters -->
+    <rosparam file="$(find tmplanner_discrete)/parameters/tmplanner.yaml"/>
+    <rosparam file="$(find tmplanner_discrete)/parameters/camera_calib.yaml"/>
+    <rosparam file="$(find tmplanner_discrete)/parameters/transform_world_map.yaml"/>
+
+    <!-- Start the informative path planner -->
+    <node name="tmplanner_node" pkg="tmplanner_discrete" type="tmplanner_node">
+      <!-- Simulation -->
+      <remap from="odometry" to="ground_truth/odometry" />
+      <remap from="pose_array_measurements" to="tag_detections_pose" />
+    </node>
+
+    <node name="trajectory_sampler" pkg="mav_trajectory_generation_ros" type="trajectory_sampler_node" output="screen" />
+
+  </group>
+
+</launch>

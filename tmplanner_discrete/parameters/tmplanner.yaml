@@ -1,0 +1,64 @@
+## Map parameters ##
+# Environment parameters [m]
+width: 4.0
+height: 4.0
+map_resolution_x: 0.2
+map_resolution_y: 0.2
+# Probability occupancy thresholds
+upper_threshold: 0.75
+lower_threshold: 0.25
+# Name of the map reference frame
+frame_id: "map"
+
+## Planning parameters ##
+# Number of control poses/points for a polynomial plan
+control_poses: 5
+
+# Position of first measurement [m]
+initial_pos_x: 0.0
+initial_pos_y: 0.0
+initial_pos_z: 2.0
+
+# Maximum altitude to fly [m]
+maximum_height: 3.0
+# Minimum altitude to fly [m]
+minimum_height: 0.5
+
+# References for polynomial path optimization
+reference_speed: 1.0 # [m/s]
+reference_acceleration: 2.0 # [m/s2]
+reference_yaw: -42.1055206 # [deg]
+
+# Number of lattice points at lowest altitude level
+lattice_min_height_points: 16
+# Distance between successive altitude levels on the lattice
+lattice_height_increment: 0.6
+
+# Total allocated time budget [s]
+time_budget: 200
+
+## Sensor parameters ##
+# Frequency at which to take measurements along a plan [Hz]
+measurement_frequency: 0.20 #0.15
+# Maximum altitude [m] for receiving valid sensor measurements
+saturation_height: 2.7
+
+# Polynomial coefficients for true positive classification curve - P(occ|occ) [descending order]
+true_positive_coeffs: [-0.024064171122995, -0.087433155080213, 0.968983957219251]
+# Polynomial coefficients for false negative classification curve - P(occ|free)
+false_negative_coeffs: [0.039304812834225, 0.022807486631016, 0.047326203208556]
+
+# Camera field of view angles [deg]
+fov_angle_x: 45.0
+fov_angle_y: 60.0
+
+## Optimization parameters ##
+# Informative objective for 3D grid search: 'information', 'classification'
+optimization_objective: "information"
+
+optimization_method: "cmaes"
+# CMA-ES parameters
+# https://github.com/beniz/libcmaes
+cmaes_step_size: 4.5
+cmaes_maximum_fevals: 20
+cmaes_offsprings: 20

@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find tmplanner_tools)/sim/launch/mav_camera_sim.launch">
+    <arg name="world" value="blobs_continuous"/>
+  </include>
+
+</launch>

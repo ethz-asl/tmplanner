@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+<model name="env_plane">
+  <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>30 30</size>
+          </plane>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>100</mu>
+              <mu2>50</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>30 30</size>
+          </plane>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://env_plane/materials/scripts/</uri>
+	    <uri>model://env_plane/materials/textures</uri>
+            <name>EnvPlane/Image</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>
