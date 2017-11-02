@@ -7,7 +7,7 @@ This README gives a short overview of the repository contents. For more informat
 
 **Author**: Marija Popović  
 **Maintainer**: Marija Popović, mpopovic@ethz.ch  
-**Affiliation**: Autonomous Systems Lab, ETH Zurich
+**Affiliation**: Autonomous Systems Lab., ETH Zurich
 
 ![]("https://i.imgur.com/AE2SzrI.jpg")
 
