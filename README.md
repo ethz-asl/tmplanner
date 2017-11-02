@@ -1,5 +1,5 @@
 # tmplanner
-This repository contains a real-time capable informative motion planning framework for terrain monitoring applications using unmanned aerial vehicles (UAVs). The framework is suitable for monitoring either discrete or continuous target variances.
+This repository contains a real-time capable informative motion planning framework for terrain monitoring applications using unmanned aerial vehicles (UAVs). The framework is suitable for monitoring either discrete or continuous target variables.
 
 The planner operates in a finite-horizon fashion, alternating between replanning and plan execution, while taking new sensor data into account. The replanning stage consists of two steps: (1) coarse 3D grid search in the UAV configuration space and (2) optimization of this trajectory for maximized information/exploratory gain using an evolutionary scheme.
 
