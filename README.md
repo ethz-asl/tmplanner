@@ -11,6 +11,8 @@ This README gives a short overview of the repository contents. For more informat
 
 <p align="center"><img src="https://preview.ibb.co/n7Q7OG/vlcsnap_2017_11_02_21h35m04s545.png" width="400" /></p>
 
+***
+
 ## Bibliography
 
 More information about our mapping and planning methods can be found in the following papers. Please cite them if you use our software in a scientific publication.
@@ -95,7 +97,7 @@ Each planning framework includes the following key components (same name under d
 Simulation demos for both packages are provided, as described below.
 
 
-## Demo Instructions
+## Simulation Demo Instructions
 In this repository, we provide illustrative demos of both discrete (binary) and continuous target variable terrain monitoring in the Gazebo-based [RotorS](https://github.com/ethz-asl/rotors_simulator/wiki) environment. The simulation set-up includes a rotorcraft-type UAV equipped with a downward-facing camera, as per the algorithms' problem formulation.
 
 The following steps outline the terminal commands to run an example for mapping a continuous variable. The same procedure can be applied to map discrete variables, by replacing for the ``tmplanner_discrete`` package name in the commands.
