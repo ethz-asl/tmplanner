@@ -124,6 +124,7 @@ You should now be able to see the UAV moving in the Gazebo window as the plannin
 ## Acknowledgement
 
 This work was funded by the European Community’s Horizon 2020 programme under grant agreement no 644227-Flourish and from the Swiss State Secretariat for Education, Research and Innovation (SERI) under contract number 15.0029.
+http://flourish-project.eu
 
 ## Contact
 
