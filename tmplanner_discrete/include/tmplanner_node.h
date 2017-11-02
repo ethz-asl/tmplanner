@@ -53,6 +53,7 @@ class tmPlannerNode {
   ros::Publisher polynomial_pub_;
   ros::Publisher path_points_marker_pub_;
   ros::ServiceServer start_planning_srv_;
+  ros::ServiceServer land_srv_;
   // World to map transform broadcaster.
   tf2_ros::StaticTransformBroadcaster static_tf_broadcaster_;
 
