@@ -1,21 +1,23 @@
 # tmplanner
-This repository contains a real-time capable trajectory planning framework for terrain monitoring applications using unmanned aerial vehicles (UAVs). The framework is suitable for monitoring either discrete or continuous target variances.
+This repository contains a real-time capable informative motion planning framework for terrain monitoring applications using unmanned aerial vehicles (UAVs). The framework is suitable for monitoring either discrete or continuous target variables.
 
 The planner operates in a finite-horizon fashion, alternating between replanning and plan execution, while taking new sensor data into account. The replanning stage consists of two steps: (1) coarse 3D grid search in the UAV configuration space and (2) optimization of this trajectory for maximized information/exploratory gain using an evolutionary scheme.
 
-This README gives a short overview of the repository contents. For more information, please refer to the [wiki](https://github.com/ethz-asl/flourish_ipp_ros/wiki).
+This README gives a short overview of the repository contents. For more information, please refer to the [wiki](https://github.com/ethz-asl/tmplanner/wiki).
 
 **Author**: Marija Popović  
 **Maintainer**: Marija Popović, mpopovic@ethz.ch  
-**Affiliation**: Autonomous Systems Lab, ETH Zurich
+**Affiliation**: Autonomous Systems Lab., ETH Zurich
 
-![]("https://i.imgur.com/AE2SzrI.jpg")
+<p align="center"><img src="https://preview.ibb.co/n7Q7OG/vlcsnap_2017_11_02_21h35m04s545.png" width="400" /></p>
+
+***
 
 ## Bibliography
 
 More information about our mapping and planning methods can be found in the following papers. Please cite them if you use our software in a scientific publication.
 
-For our discrete variable planner:
+* For our discrete variable planner:
 
 Marija Popović, Gregory Hitz, Juan Nieto, Inkyu Sa, Roland Siegwart, and Enric Galceran “**Online Informative Path Planning for Active Classification Using UAVs**”. In *IEEE Int. Conf. on Robotics and Automation* (ICRA), Singapore, May 2017.
 ```
@@ -29,7 +31,7 @@ Marija Popović, Gregory Hitz, Juan Nieto, Inkyu Sa, Roland Siegwart, and Enric 
 }
 ```
 
-For our continuous variable planner:
+* For our continuous variable planner:
 
 Marija Popović, Teresa Vidal-Calleja, Gregory Hitz, Inkyu Sa, Roland Siegwart, and Juan Nieto “**Multiresolution Mapping and Informative Path Planning for UAV-based Terrain Monitoring**”. In *IEEE/RSJ Int. Conf. on Intelligent Robots and Systems* (IROS), Vancouver, September 2017.
 ```
@@ -46,10 +48,10 @@ Marija Popović, Teresa Vidal-Calleja, Gregory Hitz, Inkyu Sa, Roland Siegwart, 
 ## Installation Instructions (Ubuntu)
 To install this package with [ROS Indigo](http://wiki.ros.org/indigo/Installation/Ubuntu) or [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu):
 
-1. Install additional system dependencies (swap indigo for kinetic as necessary):
+1. Install additional system dependencies (swap kinetic for indigo as necessary):
 
 ```
-sudo apt-get install python-wstool python-catkin-tools ros-indigo-cmake-modules libyaml-cpp-dev
+sudo apt-get install python-wstool python-catkin-tools ros-kinetic-cmake-modules libyaml-cpp-dev
 ```
 
 2. Set up a catkin workspace (if not already done):
@@ -58,7 +60,7 @@ sudo apt-get install python-wstool python-catkin-tools ros-indigo-cmake-modules 
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws
 catkin init
-catkin config --extend /opt/ros/indigo
+catkin config --extend /opt/ros/kinetic
 catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 catkin config --merge-devel
 ```
@@ -95,8 +97,8 @@ Each planning framework includes the following key components (same name under d
 Simulation demos for both packages are provided, as described below.
 
 
-## Demo Instructions
-In this repository, we provide illustrative demos of both discrete (binary) and continuous target variable terrain monitoring in the Gazebo-based [RotorS](https://github.com/ethz-asl/rotors_simulator/wiki) environment. The simulation set-ups includes a rotorcraft-type UAV equipped with a downward-facing camera, as per the algorithms' problem formulation.
+## Simulation Demo Instructions
+In this repository, we provide illustrative demos of both discrete (binary) and continuous target variable terrain monitoring in the Gazebo-based [RotorS](https://github.com/ethz-asl/rotors_simulator/wiki) environment. The simulation set-up includes a rotorcraft-type UAV equipped with a downward-facing camera, as per the algorithms' problem formulation.
 
 The following steps outline the terminal commands to run an example for mapping a continuous variable. The same procedure can be applied to map discrete variables, by replacing for the ``tmplanner_discrete`` package name in the commands.
 
@@ -112,17 +114,21 @@ The following steps outline the terminal commands to run an example for mapping 
  $ roslaunch tmplanner_continuous tmplanner.launch
  ```
  
-   > **Note**: The appropriate parameters must be loaded in the launch file.
+   > **Note**: The appropriate [parameters](https://github.com/ethz-asl/tmplanner/wiki/Parameters) must be loaded in the launch file.
  
  3. Initialize the planning routine via the rosservice:
  
   ```
  $ rosservice call /start_planning
  ```
+You should now be able to see the UAV moving in the Gazebo window as the planning routine is executed.
  
 ## Acknowledgement
 
-This work was funded by the European Community’s Horizon 2020 programme under grant agreement no 644227-Flourish and from the Swiss State Secretariat for Education, Research and Innovation (SERI) under contract number 15.0029.
+This work was funded by the European Community’s Horizon 2020 programme under grant agreement no 644227-Flourish and from the Swiss State Secretariat for Education, Research and Innovation (SERI) under contract number 15.0029.  
+http://flourish-project.eu
+
+<p align="center"><img src="http://flourish-project.eu/fileadmin/bsdist/theme/img/flourish-logo-v5.svg" width="200" /></p>
 
 ## Contact
 
