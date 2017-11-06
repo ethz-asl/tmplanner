@@ -46,8 +46,8 @@ lower_threshold: 0.45
 ## Sensor parameters ##
 # Frequency at which to take measurements along a plan [Hz]
 measurement_frequency: 0.20 #0.15
-# Coefficients for the exponential height-dependant sensor variance model
-# var = A * (1 - e^(-B * height))
+# Coefficients for the exponential altitude-dependent sensor variance model
+# var = A * (1 - e^(-B * altitude))
 coefficient_A: 0.05
 coefficient_B: 0.2
 
