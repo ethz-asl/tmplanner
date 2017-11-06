@@ -48,10 +48,10 @@ Marija Popović, Teresa Vidal-Calleja, Gregory Hitz, Inkyu Sa, Roland Siegwart, 
 ## Installation Instructions (Ubuntu)
 To install this package with [ROS Indigo](http://wiki.ros.org/indigo/Installation/Ubuntu) or [ROS Kinetic](http://wiki.ros.org/kinetic/Installation/Ubuntu):
 
-1. Install additional system dependencies (swap indigo for kinetic as necessary):
+1. Install additional system dependencies (swap kinetic for indigo as necessary):
 
 ```
-sudo apt-get install python-wstool python-catkin-tools ros-indigo-cmake-modules libyaml-cpp-dev
+sudo apt-get install python-wstool python-catkin-tools ros-kinetic-cmake-modules libyaml-cpp-dev
 ```
 
 2. Set up a catkin workspace (if not already done):
@@ -60,7 +60,7 @@ sudo apt-get install python-wstool python-catkin-tools ros-indigo-cmake-modules 
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws
 catkin init
-catkin config --extend /opt/ros/indigo
+catkin config --extend /opt/ros/kinetic
 catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 catkin config --merge-devel
 ```
