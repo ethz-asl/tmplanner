@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "grid_map.h"
+#include "tmplanner_discrete/grid_map.h"
 
 using namespace grid_map;
 

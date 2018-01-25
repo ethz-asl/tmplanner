@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "tmplanner.h"
+#include "tmplanner_continuous/tmplanner.h"
 
 using namespace tmplanner;
 

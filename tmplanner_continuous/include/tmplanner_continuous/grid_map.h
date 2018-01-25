@@ -42,9 +42,9 @@
 #include "minkindr_conversions/kindr_tf.h"
 #include "minkindr_conversions/kindr_xml.h"
 
-#include "cov_fun.h"
-#include "cov_matern3_iso.h"
-#include "logger.h"
+#include "tmplanner_continuous/cov_fun.h"
+#include "tmplanner_continuous/cov_matern3_iso.h"
+#include "tmplanner_continuous/logger.h"
 
 namespace grid_map {
 

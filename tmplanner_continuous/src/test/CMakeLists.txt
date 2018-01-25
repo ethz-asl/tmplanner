@@ -9,9 +9,9 @@ include_directories(include)
 
 target_link_libraries(test_cov_fun ${catkin_LIBRARIES})
 target_link_libraries(test_polyfit ${catkin_LIBRARIES})
-target_link_libraries(test_lattice ${catkin_LIBRARIES} grid_map lattice)
-target_link_libraries(test_grid_map ${catkin_LIBRARIES} grid_map)
-target_link_libraries(test_map_update ${catkin_LIBRARIES} grid_map)
+target_link_libraries(test_lattice ${catkin_LIBRARIES} ${PROJECT_NAME}_grid_map ${PROJECT_NAME}_lattice)
+target_link_libraries(test_grid_map ${catkin_LIBRARIES} ${PROJECT_NAME}_grid_map)
+target_link_libraries(test_map_update ${catkin_LIBRARIES} ${PROJECT_NAME}_grid_map)
 target_link_libraries(test_cmaes ${catkin_LIBRARIES})
 
 

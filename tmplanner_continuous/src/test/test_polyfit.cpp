@@ -17,7 +17,7 @@
 #include <glog/logging.h>
 #include <gtest/gtest.h>
 
-#include "matlab_tools.h"
+#include "tmplanner_tools/matlab_tools.h"
 
 TEST(PolyfitTest, GetsCoeffs) {
   const unsigned int order = 1;

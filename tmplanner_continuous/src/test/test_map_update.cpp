@@ -6,9 +6,9 @@
 #include <gtest/gtest.h>
 #include <tf/tf.h>
 
-#include "cov_fun.h"
-#include "cov_matern3_iso.h"
-#include "grid_map.h"
+#include "tmplanner_continuous/cov_fun.h"
+#include "tmplanner_continuous/cov_matern3_iso.h"
+#include "tmplanner_continuous/grid_map.h"
 
 TEST(MapUpdateTest, PredictsUpdate) {
   // Grid map parameters.

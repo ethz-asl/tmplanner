@@ -19,8 +19,8 @@
 #include <gtest/gtest.h>
 #include <random>
 
-#include "cov_fun.h"
-#include "cov_matern3_iso.h"
+#include "tmplanner_continuous/cov_fun.h"
+#include "tmplanner_continuous/cov_matern3_iso.h"
 
 using namespace gp;
 

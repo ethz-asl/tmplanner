@@ -14,7 +14,7 @@
     <rosparam file="$(find tmplanner_discrete)/parameters/transform_world_map.yaml"/>
 
     <!-- Start the informative path planner -->
-    <node name="tmplanner_node" pkg="tmplanner_discrete" type="tmplanner_node">
+    <node name="tmplanner_node" pkg="tmplanner_discrete" type="tmplanner_discrete_tmplanner_node">
       <!-- Simulation -->
       <remap from="odometry" to="ground_truth/odometry" />
       <remap from="pose_array_measurements" to="tag_detections_pose" />

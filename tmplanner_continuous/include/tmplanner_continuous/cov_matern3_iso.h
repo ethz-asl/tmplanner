@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "cov_fun.h"
+#include "tmplanner_continuous/cov_fun.h"
 
 #ifndef COV_MATERN3_ISO_H_
 #define COV_MATERN3_ISO_H_

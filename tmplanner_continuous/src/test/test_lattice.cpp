@@ -17,8 +17,8 @@
 #include <glog/logging.h>
 #include <gtest/gtest.h>
 
-#include "grid_map.h"
-#include "lattice.h"
+#include "tmplanner_continuous/grid_map.h"
+#include "tmplanner_continuous/lattice.h"
 
 TEST(LatticeTest, CreatesLattice) {
   // Lattice parameters

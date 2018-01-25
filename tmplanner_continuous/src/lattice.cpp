@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#include "lattice.h"
-#include "matlab_tools.h"
+#include "tmplanner_continuous/lattice.h"
+#include "tmplanner_tools/matlab_tools.h"
 
 void Lattice::createLattice(const double& maximum_height,
                             const double& minimum_height,

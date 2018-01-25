@@ -38,11 +38,11 @@
 #include "minkindr_conversions/kindr_tf.h"
 #include "minkindr_conversions/kindr_xml.h"
 
-#include "cov_fun.h"
-#include "cov_matern3_iso.h"
-#include "grid_map.h"
-#include "lattice.h"
-#include "logger.h"
+#include "tmplanner_continuous/cov_fun.h"
+#include "tmplanner_continuous/cov_matern3_iso.h"
+#include "tmplanner_continuous/grid_map.h"
+#include "tmplanner_continuous/lattice.h"
+#include "tmplanner_continuous/logger.h"
 
 namespace tmplanner {
 

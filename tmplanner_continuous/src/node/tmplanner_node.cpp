@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#include "tmplanner_node.h"
+#include "tmplanner_continuous/tmplanner_node.h"
 
 using namespace tmplanner;
 
@@ -40,8 +40,7 @@ tmPlannerNode::tmPlannerNode(const ros::NodeHandle& nh,
       nh_.advertise<visualization_msgs::Marker>("path_points_marker", 0);
   start_planning_srv_ = nh_.advertiseService(
       "start_planning", &tmPlannerNode::startPlanningCallback, this);
-  land_srv_ =
-      nh_.advertiseService("land", &tmPlannerNode::landCallback, this);
+  land_srv_ = nh_.advertiseService("land", &tmPlannerNode::landCallback, this);
 }
 
 void tmPlannerNode::loadParameters() {

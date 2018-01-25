@@ -13,11 +13,12 @@
     <rosparam file="$(find tmplanner_continuous)/parameters/transform_world_map.yaml"/>
 
     <!-- Start the informative path planner -->
-    <node name="tmplanner_node" pkg="tmplanner_continuous" type="tmplanner_node">
+    <node name="tmplanner_node" pkg="tmplanner_continuous" type="tmplanner_continuous_tmplanner_node">
       <!-- Simulation -->
       <remap from="image" to="camera/camera_sim/image_raw" />
       <remap from="odometry" to="ground_truth/odometry" />
     </node>
+
     <node name="trajectory_sampler" pkg="mav_trajectory_generation_ros" type="trajectory_sampler_node" output="screen" />
 
   </group>

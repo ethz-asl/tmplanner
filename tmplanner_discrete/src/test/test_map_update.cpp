@@ -4,7 +4,7 @@
 #include <gtest/gtest.h>
 #include <tf/tf.h>
 
-#include "grid_map.h"
+#include "tmplanner_discrete/grid_map.h"
 
 TEST(MapUpdateTest, PredictsUpdate) {
   // Grid map parameters.

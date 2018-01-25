@@ -17,7 +17,7 @@ cs_add_library(${PROJECT_NAME}_tmplanner src/tmplanner.cpp)
 
 add_subdirectory(src/test)
 
-target_link_libraries(tmplanner_node ${catkin_LIBRARIES} tmplanner grid_map lattice)
+target_link_libraries(${PROJECT_NAME}_tmplanner_node ${catkin_LIBRARIES} ${PROJECT_NAME}_tmplanner ${PROJECT_NAME}_grid_map ${PROJECT_NAME}_lattice)
 
 cs_install()
 cs_export()

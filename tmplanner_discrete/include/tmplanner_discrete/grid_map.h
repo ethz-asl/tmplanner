@@ -40,7 +40,7 @@
 #include "minkindr_conversions/kindr_tf.h"
 #include "minkindr_conversions/kindr_xml.h"
 
-#include "logger.h"
+#include "tmplanner_discrete/logger.h"
 
 namespace grid_map {
 

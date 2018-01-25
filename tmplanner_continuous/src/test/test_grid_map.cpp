@@ -20,7 +20,7 @@
 #include <gtest/gtest.h>
 #include <tf/tf.h>
 
-#include "grid_map.h"
+#include "tmplanner_continuous/grid_map.h"
 
 TEST(GridMapTest, SetsData) {
   // Grid map parameters.

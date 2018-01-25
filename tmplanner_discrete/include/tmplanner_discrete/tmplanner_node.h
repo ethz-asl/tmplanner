@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-#ifndef TMPLANNER_NODE_H_
-#define TMPLANNER_NODE_H_
 
-#include <cv_bridge/cv_bridge.h>
+#ifndef TMPLANNER_NODE_
+#define TMPLANNER_NODE_
+
+#include <geometry_msgs/PoseArray.h>
+#include <nav_msgs/OccupancyGrid.h>
 #include <nav_msgs/Odometry.h>
-#include <sensor_msgs/Image.h>
-#include <sensor_msgs/image_encodings.h>
 #include <std_srvs/Empty.h>
 #include <tf/transform_broadcaster.h>
 #include <tf2_ros/static_transform_broadcaster.h>
@@ -31,7 +31,7 @@
 #include "minkindr_conversions/kindr_tf.h"
 #include "minkindr_conversions/kindr_xml.h"
 
-#include "tmplanner.h"
+#include "tmplanner_discrete/tmplanner.h"
 
 class tmPlannerNode {
  public:
@@ -47,7 +47,8 @@ class tmPlannerNode {
   ros::NodeHandle nh_;
   ros::NodeHandle nh_private_;
   ros::Subscriber odometry_sub_;
-  ros::Subscriber image_sub_;
+  ros::Subscriber pose_array_sub_;
+  ros::Publisher grid_map_pub_;
   ros::Publisher path_segments_pub_;
   ros::Publisher polynomial_pub_;
   ros::Publisher path_points_marker_pub_;
@@ -60,6 +61,8 @@ class tmPlannerNode {
   ros::Timer planning_timer_;
   // Timer for rviz visualization.
   ros::Timer visualization_timer_;
+  // Timer for occupancy map visualization.
+  ros::Timer map_timer_;
 
   // Informative path planner.
   tmplanner::tmPlanner tmplanner_;
@@ -89,8 +92,10 @@ class tmPlannerNode {
   void deleteMarkers();
 
   void odometryCallback(const nav_msgs::OdometryConstPtr& odometry_message);
-  void imageCallback(const sensor_msgs::ImageConstPtr& image_message);
+  void poseArrayCallback(
+      const geometry_msgs::PoseArray::ConstPtr& pose_array_message);
   void visualizationTimerCallback(const ros::TimerEvent&);
+  void mapTimerCallback(const ros::TimerEvent&);
   void planningTimerCallback(const ros::TimerEvent&);
 
   // Starts informative path planning.
@@ -103,8 +108,6 @@ class tmPlannerNode {
 
   // Trajectory execution controls
   void publishTrajectory();
-
-  ros::Time odom_time_;
 };
 
 #endif  // TMPLANNER_NODE_H_

@@ -19,7 +19,7 @@
 
 #include <geometry_msgs/Point.h>
 
-#include "grid_map.h"
+#include "tmplanner_continuous/grid_map.h"
 
 class Lattice {
  public:
