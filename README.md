@@ -119,7 +119,7 @@ The following steps outline the terminal commands to run an example for mapping 
  3. Initialize the planning routine via the rosservice:
  
   ```
- $ rosservice call /start_planning
+ $ rosservice call /firefly/start_planning
  ```
 You should now be able to see the UAV moving in the Gazebo window as the planning routine is executed.
  
