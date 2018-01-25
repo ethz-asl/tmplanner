@@ -10,10 +10,10 @@ find_package(Eigen3 REQUIRED)
 
 catkin_simple(ALL_DEPS_REQUIRED)
 
-cs_add_executable(tmplanner_node src/node/tmplanner_node.cpp)
-cs_add_library(grid_map src/grid_map.cpp)
-cs_add_library(lattice src/lattice.cpp)
-cs_add_library(tmplanner src/tmplanner.cpp)
+cs_add_executable(${PROJECT_NAME}_tmplanner_node src/node/tmplanner_node.cpp)
+cs_add_library(${PROJECT_NAME}_grid_map src/grid_map.cpp)
+cs_add_library(${PROJECT_NAME}_lattice src/lattice.cpp)
+cs_add_library(${PROJECT_NAME}_tmplanner src/tmplanner.cpp)
 
 add_subdirectory(src/test)
 
