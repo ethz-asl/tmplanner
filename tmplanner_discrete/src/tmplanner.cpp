@@ -177,7 +177,7 @@ void tmPlanner::createPolynomialTrajectory() {
   // Position.
   segment_times = estimateSegmentTimes(
       path_vertices, planning_parameters_.reference_speed,
-      planning_parameters_.reference_acceleration, kFabianConstant);
+      planning_parameters_.reference_acceleration);
   mav_trajectory_generation::PolynomialOptimization<kPolynomialCoefficients>
       opt(kDimensions);
   opt.setupFromVertices(path_vertices, segment_times, kDerivativetoOptimize);

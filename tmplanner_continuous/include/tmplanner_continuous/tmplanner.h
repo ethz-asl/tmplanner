@@ -26,9 +26,9 @@
 #include <mav_trajectory_generation/trajectory.h>
 #include <mav_trajectory_generation_ros/ros_conversions.h>
 #include <mav_trajectory_generation_ros/ros_visualization.h>
-#include <mav_trajectory_generation_ros/trajectory_sampling.h>
+#include <mav_trajectory_generation_ros/trajectory_sampler_node.h>
 #include <nav_msgs/Path.h>
-#include <planning_msgs/PolynomialTrajectory4D.h>
+#include <mav_planning_msgs/PolynomialTrajectory4D.h>
 #include <ros/ros.h>
 #include <std_srvs/Empty.h>
 #include <tf/tf.h>
@@ -163,8 +163,6 @@ class tmPlanner {
   static constexpr int kDimensions = 3;  // Number of dimensions
   static constexpr int kDerivativetoOptimize =
       mav_trajectory_generation::derivative_order::ACCELERATION;
-  static constexpr double kFabianConstant =
-      6.5;  // Tuning parameter for polynomial optimization
 
   // Parameters.
   MapParameters map_parameters_;

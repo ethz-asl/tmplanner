@@ -33,7 +33,7 @@ tmPlannerNode::tmPlannerNode(const ros::NodeHandle& nh,
       nh_.subscribe("odometry", 1, &tmPlannerNode::odometryCallback, this);
   image_sub_ = nh_.subscribe("image", 1, &tmPlannerNode::imageCallback, this);
   path_segments_pub_ =
-      nh_.advertise<planning_msgs::PolynomialTrajectory4D>("path_segments", 1);
+      nh_.advertise<mav_planning_msgs::PolynomialTrajectory4D>("path_segments", 1);
   polynomial_pub_ = nh_.advertise<visualization_msgs::MarkerArray>(
       "polynomial_markers", 1, true);
   path_points_marker_pub_ =
@@ -325,7 +325,7 @@ bool tmPlannerNode::landCallback(std_srvs::Empty::Request& request,
 void tmPlannerNode::publishTrajectory() {
   CHECK_GT(tmplanner_.getTrajectory().K(), 0)
       << "Trajectory to publish is empty!";
-  planning_msgs::PolynomialTrajectory4D msg;
+  mav_planning_msgs::PolynomialTrajectory4D msg;
   mav_trajectory_generation::trajectoryToPolynomialTrajectoryMsg(
       tmplanner_.getTrajectory(), &msg);
   path_segments_pub_.publish(msg);
