@@ -22,30 +22,42 @@
 
 TEST(LatticeTest, CreatesLattice) {
   // Lattice parameters
-  const double maximum_height = 26.0;
-  const double minimum_height = 1.0;
-  const double sensor_fov_angle_x = 45.0;
-  const double sensor_fov_angle_y = 60.0;
-  const int min_height_points = 16;
-  const double height_increment = 8.0;
-  // Raven
+  // const double maximum_height = 26.0;
+  // const double minimum_height = 1.0;
+  // const double sensor_fov_angle_x = 45.0;
+  // const double sensor_fov_angle_y = 60.0;
+  // const int min_height_points = 16;
+  // const double height_increment = 8.0;
+  // Raven - Bonn
   // const double maximum_height = 7.61;
   // const double minimum_height = 2.0;
   // const double sensor_fov_angle_x = 42.7;
   // const double sensor_fov_angle_y = 55.0;
   // const int min_height_points = 9;
   // const double height_increment = 2.8;
+  // Raven - Zurich
+  const double maximum_height = 21.1;
+  const double minimum_height = 8.0;
+  const double sensor_fov_angle_x = 42.7;
+  const double sensor_fov_angle_y = 55.0;
+  const int min_height_points = 25;
+  const double height_increment = 6.5;
 
   // Grid map parameters
-  const double width = 30.0;
-  const double height = 30.0;
-  const double resolution_x = 0.75;
-  const double resolution_y = 0.75;
-  // Raven
+  // const double width = 30.0;
+  // const double height = 30.0;
+  // const double resolution_x = 0.75;
+  // const double resolution_y = 0.75;
+  // Raven - Bonn
   // const double width = 8.0;
   // const double height = 8.0;
   // const double resolution_x = 0.20;
   // const double resolution_y = 0.20;
+  // Raven - Zurich
+  const double width = 20.0;
+  const double height = 20.0;
+  const double resolution_x = 0.50;
+  const double resolution_y = 0.50;
 
   // Create the grid map.
   // Set up the map.
@@ -59,11 +71,11 @@ TEST(LatticeTest, CreatesLattice) {
                         sensor_fov_angle_y, min_height_points, height_increment,
                         grid_map);
   std::vector<geometry_msgs::Point> points = lattice.getLatticePoints();
-  EXPECT_EQ(points.size(), 30);
-  // for (size_t i = 0; i < points.size(); ++i) {
-  //   LOG(INFO) << points[i].x << ", " << points[i].y << ", " << points[i].z
-  //             << ";";
-  // }
+  //EXPECT_EQ(points.size(), 30);
+  for (size_t i = 0; i < points.size(); ++i) {
+     LOG(INFO) << points[i].x << ", " << points[i].y << ", " << points[i].z
+               << ";";
+  }
 }
 
 // gtest main

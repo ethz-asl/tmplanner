@@ -133,8 +133,8 @@ TEST(MapUpdateTest, PerformsUpdateFromImage) {
                  1);
   sensor_msgs::ImagePtr image_msg =
       cv_bridge::CvImage(std_msgs::Header(), "bgr8", cv_image).toImageMsg();
-  cv_bridge::CvImageConstPtr cv_image_ptr =
-      cv_bridge::toCvShare(image_msg, sensor_msgs::image_encodings::BGR8);
+  cv_bridge::CvImagePtr cv_image_ptr =
+      cv_bridge::toCvCopy(image_msg, sensor_msgs::image_encodings::BGR8);
 
   // Perform the map update.
   grid_map.updateMapFromImage(cv_image_ptr, mav_pose, T_IMU_CAM, fov_angle_x,
