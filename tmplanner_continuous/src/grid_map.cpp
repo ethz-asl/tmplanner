@@ -240,8 +240,14 @@ void GridMap::updateMapFromImage(
         continue;
       }
       submap_counter(grid_point(1) - y_min, grid_point(0) - x_min)++;
+      // Hue.
       submap_data(grid_point(1) - y_min, grid_point(0) - x_min) +=
           (unsigned int)channels[0].at<uchar>(i, j);
+      // ExG.
+      //submap_data(grid_point(1) - y_min, grid_point(0) - x_min) +=
+      //    2*(unsigned int)channels[1].at<uchar>(i, j) - 
+      //    (unsigned int)channels[0].at<uchar>(i, j) -
+      //    (unsigned int)channels[2].at<uchar>(i, j);
     }
   }
 
