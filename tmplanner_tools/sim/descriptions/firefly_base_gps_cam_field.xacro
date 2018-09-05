@@ -77,9 +77,9 @@
   <xacro:camera_macro
     namespace="${namespace}/camera"
     parent_link="${namespace}/base_link"
-    image_width="480"
-    image_height="360"
-    frame_rate="0.15"
+    image_width="1920"
+    image_height="1080"
+    frame_rate="0.2"
     camera_suffix="sim"
     horizontal_fov="0.824"
     image_format="R8G8B8"

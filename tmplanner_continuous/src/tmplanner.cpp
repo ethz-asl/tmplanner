@@ -123,7 +123,7 @@ void tmPlanner::updateMap(const cv_bridge::CvImagePtr& cv_image_ptr,
   //                  .count();
   logger_.writeMeasurementPose(odometry_pose);
   logger_.writeCovarianceTrace(grid_map_.computeCovarianceTrace());
-  // logger_.writeImage(cv_image_ptr);
+  //logger_.writeImage(cv_image_ptr);
 }
 
 void tmPlanner::createPolynomialTrajectory() {

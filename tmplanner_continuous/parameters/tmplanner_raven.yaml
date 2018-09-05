@@ -12,7 +12,7 @@ log_hyperparams: [1.3, 0.3]
 
 ## Planning parameters ##
 # Number of control poses/points for a polynomial plan
-control_poses: 3
+control_poses: 4
 #control_poses: 3
 
 # Position of first measurement [m]
@@ -26,8 +26,8 @@ maximum_height: 21.1
 minimum_height: 8.0
 
 # References for polynomial path optimization
-reference_speed: 1.5 # [m/s]
-reference_acceleration: 2.0 # [m/s2]
+reference_speed: 5.0 #1.5 # [m/s]
+reference_acceleration: 3.0 #2.0 # [m/s2]
 reference_yaw: 0.0 #-42.1055206 # [deg]
 
 # Number of lattice points at lowest altitude level
@@ -40,7 +40,7 @@ time_budget: 1000
 
 # Whether to use a lower threshold for adaptive planning
 # Only regions above this threshold are used to compute info. gain
-use_threshold: true
+use_threshold: false
 lower_threshold: 0.45
 
 ## Sensor parameters ##
