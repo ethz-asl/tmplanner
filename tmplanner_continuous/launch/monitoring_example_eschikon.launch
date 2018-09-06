@@ -1,6 +1,6 @@
 <launch>
 
-  <include file="$(find tmplanner_tools)/sim/launch/mav_camera_sim_field.launch">
+  <include file="$(find tmplanner_tools)/sim/launch/mav_camera_sim_raven.launch">
     <arg name="world" value="blobs_continuous_eschikon"/>
   </include>
 

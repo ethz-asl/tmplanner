@@ -19,7 +19,7 @@
   <group ns="$(arg mav_name)">
     <include file="$(find rotors_gazebo)/launch/spawn_mav.launch">
       <arg name="mav_name" value="$(arg mav_name)" />
-      <arg name="model" value="$(find tmplanner_tools)/sim/descriptions/firefly_base_gps_cam_field.xacro" />
+      <arg name="model" value="$(find tmplanner_tools)/sim/descriptions/firefly_base_gps_cam_raven.xacro" />
       <arg name="enable_logging" value="$(arg enable_logging)" />
       <arg name="enable_ground_truth" value="$(arg enable_ground_truth)" />
       <arg name="log_file" value="$(arg log_file)"/>
