@@ -81,7 +81,7 @@
     image_height="1080"
     frame_rate="0.2"
     camera_suffix="sim"
-    horizontal_fov="0.824"
+    horizontal_fov="1.187"
     image_format="R8G8B8"
     min_distance="0.02"
     max_distance="300"
@@ -89,7 +89,7 @@
     noise_stddev="0.0"
     enable_visual="true">
     <box size="0.02 0.02 0.02" />
-    <origin xyz="0 0 -0.05" rpy="0 ${pi/2} 0" />
+    <origin xyz="0.0408 0.1519 -0.0621" rpy="0 ${pi/2} 0" />
   </xacro:camera_macro>
 
   <xacro:if value="$(arg enable_ground_truth)">

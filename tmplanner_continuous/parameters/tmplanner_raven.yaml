@@ -53,7 +53,7 @@ coefficient_B: 0.2
 
 # Camera field of view angles [deg]
 fov_angle_x: 42.7
-fov_angle_y: 55.0
+fov_angle_y: 68.0
 
 ## Optimization parameters ##
 optimization_method: "cmaes"
