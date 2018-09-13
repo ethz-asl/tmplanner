@@ -86,7 +86,13 @@ bool tmPlanner::createNewPlan(const geometry_msgs::Pose& current_pose) {
                                                                      begin)
                    .count();
   // STEP 2. Evolutionary optimization.
+  begin = std::chrono::steady_clock::now();
   optimizePathOnHorizon();
+  end = std::chrono::steady_clock::now();
+  LOG(INFO) << "Optimization time = "
+            << std::chrono::duration_cast<std::chrono::microseconds>(end -
+                                                                     begin)
+                   .count();
   logger_.writeControlPoses(control_poses_);
   createPolynomialTrajectory();
   return true;
@@ -94,18 +100,23 @@ bool tmPlanner::createNewPlan(const geometry_msgs::Pose& current_pose) {
 
 void tmPlanner::createLandingPlan() {
   control_poses_.clear();
-  control_poses_.push_back(odometry_pose_);
-  geometry_msgs::Pose landing_pose;
-  landing_pose.position.x = odometry_pose_.position.x;
-  landing_pose.position.y = odometry_pose_.position.y;
-  landing_pose.position.z = 0.05;
-  landing_pose.orientation = odometry_pose_.orientation;
-  control_poses_.push_back(landing_pose);
+  kindr::minimal::QuatTransformation T_MAP_VSB;
+  geometry_msgs::Pose pose_world, landing_pose_world;
+  tf::poseMsgToKindr(odometry_pose_, &T_MAP_VSB);
+  kindr::minimal::QuatTransformation T_W_VSB =
+      map_parameters_.T_W_MAP * T_MAP_VSB;
+  tf::poseKindrToMsg(T_W_VSB, &pose_world);
+  control_poses_.push_back(pose_world);
+  landing_pose_world.position.x = pose_world.position.x;
+  landing_pose_world.position.y = pose_world.position.y;
+  landing_pose_world.position.z = 0.05;
+  landing_pose_world.orientation = pose_world.orientation;
+  control_poses_.push_back(landing_pose_world);
   createPolynomialTrajectory();
 }
 
 void tmPlanner::updateMap(const cv_bridge::CvImagePtr& cv_image_ptr,
-                            const geometry_msgs::Pose& odometry_pose) {
+                          const geometry_msgs::Pose& odometry_pose) {
   LOG(INFO) << "Updating map at x = " << odometry_pose.position.x
             << ", y = " << odometry_pose.position.y
             << ", z = " << odometry_pose.position.z;
