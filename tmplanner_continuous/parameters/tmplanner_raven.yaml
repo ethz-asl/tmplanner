@@ -12,10 +12,10 @@ log_hyperparams: [1.3, 0.3]
 
 ## Planning parameters ##
 # Number of control poses/points for a polynomial plan
-control_poses: 4
+control_poses: 3
 #control_poses: 3
 
-# Position of first measurement [m]
+# Position of first measurement (world frame) [m]
 initial_pos_x: 0.0
 initial_pos_y: 0.0
 initial_pos_z: 10.0
@@ -31,7 +31,7 @@ reference_acceleration: 3.0 #2.0 # [m/s2]
 reference_yaw: 0.0 #-42.1055206 # [deg]
 
 # Number of lattice points at lowest altitude level
-lattice_min_height_points: 25
+lattice_min_height_points: 16 #25
 # Distance between successive altitude levels on the lattice
 lattice_height_increment: 6.5
 

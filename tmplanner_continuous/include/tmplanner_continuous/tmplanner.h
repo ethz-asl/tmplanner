@@ -153,6 +153,8 @@ class tmPlanner {
   bool createNewPlan(const geometry_msgs::Pose& current_pose);
   // Creates a plan to land at current (x,y) position.
   void createLandingPlan();
+  // Creates a plan to navigate above origin in world frame, then land.
+  void createGoToHomePlan();
 
   // Updates the environment grid map from a received image.
   void updateMap(const cv_bridge::CvImagePtr& cv_image_ptr,

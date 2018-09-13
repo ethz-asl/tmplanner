@@ -43,6 +43,8 @@ tmPlannerNode::tmPlannerNode(const ros::NodeHandle& nh,
   stop_planning_srv_ = nh_.advertiseService(
       "stop_planning", &tmPlannerNode::stopPlanningCallback, this);
   land_srv_ = nh_.advertiseService("land", &tmPlannerNode::landCallback, this);
+  go_to_home_srv_ = nh_.advertiseService(
+      "go_to_home", &tmPlannerNode::goToHomeCallback, this);
 }
 
 void tmPlannerNode::loadParameters() {
@@ -327,6 +329,16 @@ bool tmPlannerNode::landCallback(std_srvs::Empty::Request& request,
   LOG(INFO) << "Landing now...";
   do_map_updates_ = false;
   tmplanner_.createLandingPlan();
+  planning_timer_.stop();
+  publishTrajectory();
+  return true;
+}
+
+bool tmPlannerNode::goToHomeCallback(std_srvs::Empty::Request& request,
+                                     std_srvs::Empty::Response& response) {
+  LOG(INFO) << "Returning to home...";
+  do_map_updates_ = false;
+  tmplanner_.createGoToHomePlan();
   planning_timer_.stop();
   publishTrajectory();
   return true;

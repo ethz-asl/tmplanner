@@ -54,6 +54,7 @@ class tmPlannerNode {
   ros::ServiceServer start_planning_srv_;
   ros::ServiceServer stop_planning_srv_;
   ros::ServiceServer land_srv_;
+  ros::ServiceServer go_to_home_srv_;
   // World to map transform broadcaster.
   tf2_ros::StaticTransformBroadcaster static_tf_broadcaster_;
 
@@ -105,6 +106,9 @@ class tmPlannerNode {
   bool landCallback(std_srvs::Empty::Request& request,
                     std_srvs::Empty::Response& response);
 
+  // Sends the command to go "home" in the world frame.
+  bool goToHomeCallback(std_srvs::Empty::Request& request,
+                        std_srvs::Empty::Response& response);
   // Trajectory execution controls
   void publishTrajectory();
 

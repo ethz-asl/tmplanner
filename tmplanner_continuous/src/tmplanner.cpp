@@ -115,6 +115,26 @@ void tmPlanner::createLandingPlan() {
   createPolynomialTrajectory();
 }
 
+void tmPlanner::createGoToHomePlan() {
+  control_poses_.clear();
+  kindr::minimal::QuatTransformation T_MAP_VSB;
+  geometry_msgs::Pose pose_world;
+  tf::poseMsgToKindr(odometry_pose_, &T_MAP_VSB);
+  kindr::minimal::QuatTransformation T_W_VSB =
+      map_parameters_.T_W_MAP * T_MAP_VSB;
+  tf::poseKindrToMsg(T_W_VSB, &pose_world);
+  control_poses_.push_back(pose_world);
+  pose_world.position.x = 0.0;
+  pose_world.position.y = 0.0;
+  pose_world.position.z = 10.0;
+  control_poses_.push_back(pose_world);
+  pose_world.position.x = 0.0;
+  pose_world.position.y = 0.0;
+  pose_world.position.z = 0.05;
+  control_poses_.push_back(pose_world);
+  createPolynomialTrajectory();
+}
+
 void tmPlanner::updateMap(const cv_bridge::CvImagePtr& cv_image_ptr,
                           const geometry_msgs::Pose& odometry_pose) {
   LOG(INFO) << "Updating map at x = " << odometry_pose.position.x
