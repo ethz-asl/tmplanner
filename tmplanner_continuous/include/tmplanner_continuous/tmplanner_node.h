@@ -52,6 +52,7 @@ class tmPlannerNode {
   ros::Publisher polynomial_pub_;
   ros::Publisher path_points_marker_pub_;
   ros::ServiceServer start_planning_srv_;
+  ros::ServiceServer stop_planning_srv_;
   ros::ServiceServer land_srv_;
   // World to map transform broadcaster.
   tf2_ros::StaticTransformBroadcaster static_tf_broadcaster_;
@@ -96,6 +97,9 @@ class tmPlannerNode {
   // Starts informative path planning.
   bool startPlanningCallback(std_srvs::Empty::Request& request,
                              std_srvs::Empty::Response& response);
+  // Stops informative path planning.
+  bool stopPlanningCallback(std_srvs::Empty::Request& request,
+                            std_srvs::Empty::Response& response);
 
   // Sends the command to land.
   bool landCallback(std_srvs::Empty::Request& request,

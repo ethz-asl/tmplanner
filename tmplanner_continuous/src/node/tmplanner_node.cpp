@@ -32,14 +32,16 @@ tmPlannerNode::tmPlannerNode(const ros::NodeHandle& nh,
   odometry_sub_ =
       nh_.subscribe("odometry", 1, &tmPlannerNode::odometryCallback, this);
   image_sub_ = nh_.subscribe("image", 1, &tmPlannerNode::imageCallback, this);
-  path_segments_pub_ =
-      nh_.advertise<mav_planning_msgs::PolynomialTrajectory4D>("path_segments", 1);
+  path_segments_pub_ = nh_.advertise<mav_planning_msgs::PolynomialTrajectory4D>(
+      "path_segments", 1);
   polynomial_pub_ = nh_.advertise<visualization_msgs::MarkerArray>(
       "polynomial_markers", 1, true);
   path_points_marker_pub_ =
       nh_.advertise<visualization_msgs::Marker>("path_points_marker", 0);
   start_planning_srv_ = nh_.advertiseService(
       "start_planning", &tmPlannerNode::startPlanningCallback, this);
+  stop_planning_srv_ = nh_.advertiseService(
+      "stop_planning", &tmPlannerNode::stopPlanningCallback, this);
   land_srv_ = nh_.advertiseService("land", &tmPlannerNode::landCallback, this);
 }
 
@@ -214,12 +216,12 @@ void tmPlannerNode::imageCallback(
     const sensor_msgs::ImageConstPtr& image_message) {
   geometry_msgs::Pose odom_pose = odometry_pose_;
   ros::Time odom_time = odom_time_;
-  if (abs(image_message->header.stamp.toNSec() - odom_time.toNSec()) >
-      0.25 * pow(10, 9.0)) {
-    LOG(INFO) << "More than 0.25s delay between image and odometry messages! "
-                 "Skipping measurement...";
-    return;
-  }
+  //if (abs(image_message->header.stamp.toNSec() - odom_time.toNSec()) >
+  //    0.25 * pow(10, 9.0)) {
+  //  LOG(INFO) << "More than 0.25s delay between image and odometry messages! "
+  //               "Skipping measurement...";
+  //  return;
+  //}
   cv_bridge::CvImagePtr cv_ptr;
   try {
     cv_ptr = cv_bridge::toCvCopy(image_message);
@@ -309,6 +311,14 @@ bool tmPlannerNode::startPlanningCallback(std_srvs::Empty::Request& request,
       ros::Duration(0.1), &tmPlannerNode::visualizationTimerCallback, this);
   planning_timer_ = nh_.createTimer(
       ros::Duration(0.1), &tmPlannerNode::planningTimerCallback, this);
+  return true;
+}
+
+bool tmPlannerNode::stopPlanningCallback(std_srvs::Empty::Request& request,
+                                         std_srvs::Empty::Response& response) {
+  LOG(INFO) << "Stopping IPP...";
+  do_map_updates_ = false;
+  planning_timer_.stop();
   return true;
 }
 
