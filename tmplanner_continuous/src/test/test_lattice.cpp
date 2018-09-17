@@ -40,7 +40,7 @@ TEST(LatticeTest, CreatesLattice) {
   const double minimum_height = 8.0;
   const double sensor_fov_angle_x = 42.7;
   const double sensor_fov_angle_y = 55.0;
-  const int min_height_points = 25;
+  const int min_height_points = 16; //25
   const double height_increment = 6.5;
 
   // Grid map parameters
