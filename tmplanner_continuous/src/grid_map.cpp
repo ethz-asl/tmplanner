@@ -185,7 +185,7 @@ void GridMap::updateMapFromImage(
   // Extract the LAB channels.
   // cv::cvtColor(image, image, cv::COLOR_BGR2Lab);
   // Extract the HSV channels.
-  //cv::cvtColor(image, image, cv::COLOR_BGR2HSV);
+  // cv::cvtColor(image, image, cv::COLOR_BGR2HSV);
   split(image, channels);
 
   // Calculate the corner co-ordinates of the observed submap.
@@ -207,16 +207,19 @@ void GridMap::updateMapFromImage(
   trimSubmapCoordinatesToGrid(&submap_coordinates);
 
   // Initialize variables to keep track of submap data.
-  const size_t x_min = std::min(
+  const int x_min = std::min(
       {submap_coordinates.lower_left(0), submap_coordinates.upper_left(0)});
-  const size_t x_max = std::max(
+  const int x_max = std::max(
       {submap_coordinates.upper_right(0), submap_coordinates.lower_right(0)});
-  const size_t y_min = std::min(
+  const int y_min = std::min(
       {submap_coordinates.lower_left(1), submap_coordinates.lower_right(1)});
-  const size_t y_max = std::max(
+  const int y_max = std::max(
       {submap_coordinates.upper_left(1), submap_coordinates.upper_right(1)});
-  const size_t submap_size_x = x_max - x_min + 1;
-  const size_t submap_size_y = y_max - y_min + 1;
+  const int submap_size_x = x_max - x_min + 1;
+  const int submap_size_y = y_max - y_min + 1;
+  if (submap_size_x <= 0 || submap_size_y <= 0) {
+    return;
+  }
   Eigen::MatrixXd submap_counter, submap_data;
   submap_counter.setZero(submap_size_y, submap_size_x);
   submap_data.setZero(submap_size_y, submap_size_x);
@@ -246,8 +249,8 @@ void GridMap::updateMapFromImage(
       // ExG.
       submap_data(grid_point(1) - y_min, grid_point(0) - x_min) +=
           2.0 * (int)channels[1].at<uchar>(i, j) -
-          (int)channels[0].at<uchar>(i, j) -
-          (int)channels[2].at<uchar>(i, j) + 128.0;
+          (int)channels[0].at<uchar>(i, j) - (int)channels[2].at<uchar>(i, j) +
+          128.0;
     }
   }
 
