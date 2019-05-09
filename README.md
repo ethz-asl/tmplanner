@@ -1,7 +1,7 @@
 # tmplanner
 This repository contains a real-time capable informative motion planning framework for terrain monitoring applications using unmanned aerial vehicles (UAVs). The framework is suitable for monitoring either discrete or continuous target variables.
 
-The planner operates in a finite-horizon fashion, alternating between replanning and plan execution, while taking new sensor data into account. The replanning stage consists of two steps: (1) coarse 3D grid search in the UAV configuration space and (2) optimization of this trajectory for maximized information/exploratory gain using an evolutionary scheme.
+The planner operates in a finite-horizon fashion, alternating between replanning and plan execution, while taking new sensor data into account. The replanning stage consists of two steps: (1) coarse 3D grid search in the UAV workspace and (2) optimization of this trajectory for maximized information/exploratory gain using an evolutionary scheme.
 
 This README gives a short overview of the repository contents. For more information, please refer to the [wiki](https://github.com/ethz-asl/tmplanner/wiki).
 
