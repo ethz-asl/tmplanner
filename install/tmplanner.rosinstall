@@ -1,6 +1,7 @@
 - git: {local-name: cmaes_catkin, uri: 'git@github.com:ethz-asl/cmaes_catkin.git'}
 - git: {local-name: eigen_catkin, uri: 'git@github.com:ethz-asl/eigen_catkin.git'}
 - git: {local-name: eigen_checks, uri: 'git@github.com:ethz-asl/eigen_checks.git'}
+- git: {local-name: catkin_simple, uri: 'git@github.com:catkin/catkin_simple.git'}
 - git: {local-name: glog_catkin, uri: 'git@github.com:ethz-asl/glog_catkin.git'}
 - git: {local-name: mav_trajectory_generation, uri: 'git@github.com:ethz-asl/mav_trajectory_generation.git'}
 - git: {local-name: minkindr_ros, uri: 'git@github.com:ethz-asl/minkindr_ros.git'}
