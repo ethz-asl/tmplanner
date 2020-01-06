@@ -46,7 +46,7 @@ Marija Popović, Teresa Vidal-Calleja, Gregory Hitz, Inkyu Sa, Roland Siegwart, 
 ```
 
 
-* For our continuous variable planner:
+* For the integrated framework (including more extensive experimental results):
 
 Marija Popović, Teresa Vidal-Calleja, Gregory Hitz, Inkyu Sa, Roland Siegwart, and Juan Nieto “**An informative path planning framework for UAV-based terrain monitoring**”. In *arXiv/1809.03870*, 2020.
 ```
