@@ -1,5 +1,5 @@
 # tmplanner
-This repository contains a real-time capable informative motion planning framework for terrain monitoring applications using unmanned aerial vehicles (UAVs). The framework is suitable for monitoring either discrete or continuous target variables.
+This repository contains a real-time capable informative motion planning framework for terrain monitoring applications using unmanned aerial vehicles (UAVs). The framework is suitable for monitoring either discrete or continuous target variables and in missions with online adaptivity requirements for targeted regions of interest.
 
 The planner operates in a finite-horizon fashion, alternating between replanning and plan execution, while taking new sensor data into account. The replanning stage consists of two steps: (1) coarse 3D grid search in the UAV workspace and (2) optimization of this trajectory for maximized information/exploratory gain using an evolutionary scheme.
 
@@ -42,6 +42,20 @@ Marija Popović, Teresa Vidal-Calleja, Gregory Hitz, Inkyu Sa, Roland Siegwart, 
   year={2017},
   address={Vancouver},
   month={September}
+}
+```
+
+
+* For our continuous variable planner:
+
+Marija Popović, Teresa Vidal-Calleja, Gregory Hitz, Inkyu Sa, Roland Siegwart, and Juan Nieto “**An informative path planning framework for UAV-based terrain monitoring**”. In *arXiv/1809.03870*, 2020.
+```
+@inproceedings{popovic2020,
+  author={Popović, Marija and Vidal-Calleja, Teresa and Hitz, Gregory and Sa, Inkyu and Siegwart, Roland and Nieto, Juan},
+  title={An informative path planning framework for UAV-based terrain monitoring},
+  year={2020},
+  url={http://arxiv.org/abs/1809.03870},
+  eprint={1809.03870}
 }
 ```
 
