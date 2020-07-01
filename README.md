@@ -6,8 +6,8 @@ The planner operates in a finite-horizon fashion, alternating between replanning
 This README gives a short overview of the repository contents. For more information, please refer to the [wiki](https://github.com/ethz-asl/tmplanner/wiki).
 
 **Author**: Marija Popović  
-**Maintainer**: Marija Popović, mpopovic@ethz.ch  
-**Affiliation**: Autonomous Systems Lab., ETH Zurich
+**Maintainer**: Marija Popović, m.popovic@imperial.ac.uk
+**Affiliation**: Smart Robotics Lab., Imperial College London (time of work: Autonomous Systems Lab., ETH Zurich)
 
 <p align="center"><img src="https://preview.ibb.co/n7Q7OG/vlcsnap_2017_11_02_21h35m04s545.png" width="400" /></p>
 
